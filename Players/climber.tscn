@@ -1,17 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://br3d7nxkytnd7"]
+[gd_scene load_steps=7 format=3 uid="uid://br3d7nxkytnd7"]
 
 [ext_resource type="Script" path="res://Players/climber.gd" id="1_6x0om"]
-[ext_resource type="Texture2D" uid="uid://djqpdc50h8eiy" path="res://Art/playerGrey_up1.png" id="1_x4x4j"]
-[ext_resource type="Texture2D" uid="uid://bc2ma7ixa112w" path="res://Art/playerGrey_up2.png" id="2_1cn02"]
+[ext_resource type="Texture2D" uid="uid://njpc0hm1uk0u" path="res://Art/Goblin_der_klatre_falder.png" id="2_bafrd"]
+[ext_resource type="Texture2D" uid="uid://dsfd5t5o2wgqt" path="res://Art/Goblin_der_klatre_hjre.png" id="2_v4vy2"]
+[ext_resource type="Texture2D" uid="uid://dshwdidv5xbk2" path="res://Art/Goblin_der_klatre_venstre.png" id="3_fa5hi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8t14e"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_x4x4j")
+"texture": ExtResource("2_bafrd")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v4vy2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_1cn02")
+"texture": ExtResource("3_fa5hi")
 }],
 "loop": true,
 "name": &"up",
@@ -19,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y200f"]
-radius = 54.0
+radius = 45.0
 height = 136.0
 
 [node name="Climber" type="Area2D"]
@@ -27,7 +36,7 @@ script = ExtResource("1_6x0om")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8t14e")
-animation = &"up"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_y200f")

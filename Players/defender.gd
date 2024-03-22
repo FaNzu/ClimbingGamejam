@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
+@export var Barrel = PackedScene
 
 signal hit
 
@@ -22,6 +23,8 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = true
 	
 	#make bullet logic here
+	if Input.is_action_pressed("defender_attack_q"):
+		shoot_barrel()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -31,7 +34,6 @@ func _process(delta):
 
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	
 
 func _on_body_entered(body):
 	hide() # Player disappears after being hit.
@@ -43,3 +45,7 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+func shoot_barrel():
+	var b = Barrel.instance()
+	add_child(b)

@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvnfjrfeb13ei"]
+[gd_scene load_steps=6 format=3 uid="uid://dvnfjrfeb13ei"]
 
-[ext_resource type="Texture2D" uid="uid://djqpdc50h8eiy" path="res://Art/playerGrey_up1.png" id="1_gcv8w"]
-[ext_resource type="Texture2D" uid="uid://bc2ma7ixa112w" path="res://Art/playerGrey_up2.png" id="2_w4gx4"]
+[ext_resource type="Script" path="res://Players/defender.gd" id="1_b7ftw"]
+[ext_resource type="Texture2D" uid="uid://cdk3awpccaoqm" path="res://Art/enemyWalking_1.png" id="2_r64ai"]
+[ext_resource type="Texture2D" uid="uid://cjm3xr1b7vtvi" path="res://Art/enemyWalking_2.png" id="3_1fo6o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jjo37"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gcv8w")
+"texture": ExtResource("2_r64ai")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_w4gx4")
+"texture": ExtResource("3_1fo6o")
 }],
 "loop": true,
 "name": &"walk",
@@ -22,6 +23,7 @@ radius = 54.0
 height = 136.0
 
 [node name="Defender" type="Area2D"]
+script = ExtResource("1_b7ftw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jjo37")

@@ -2,12 +2,15 @@ extends Area2D
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
+var stopped
 
 signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	stopped = true
+	$AnimatedSprite2D.animation = "up"
 	#uncomment to hide character on start
 	#hide()
 
@@ -25,8 +28,12 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+		if stopped:
+			stopped = false
+			$AnimatedSprite2D.frame = ($AnimatedSprite2D.frame + 1) % 2
+			$AnimatedSprite2D.play()
 	else:
+		stopped = true
 		$AnimatedSprite2D.pause()
 
 	position += velocity * delta

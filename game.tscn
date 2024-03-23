@@ -64,3 +64,36 @@ enabled = false
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_l24x5")
 volume_db = 1.167
+
+[node name="POPUP" type="Window" parent="."]
+title = "WINNER POPUP"
+initial_position = 1
+size = Vector2i(300, 115)
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="POPUP"]
+anchor_mode = 0
+
+[node name="PopupText" type="Label" parent="POPUP/Camera2D"]
+offset_left = 55.035
+offset_top = 0.6
+offset_right = 241.035
+offset_bottom = 23.6
+text = "You won with a time of :"
+horizontal_alignment = 1
+
+[node name="PopupTimer" type="Label" parent="POPUP/Camera2D"]
+offset_left = 55.035
+offset_top = 24.61
+offset_right = 241.035
+offset_bottom = 47.61
+horizontal_alignment = 1
+
+[node name="BackToMainMenu" type="Button" parent="POPUP/Camera2D"]
+offset_left = 90.485
+offset_top = 59.685
+offset_right = 205.485
+offset_bottom = 90.685
+text = "Back to menu"
+
+[connection signal="pressed" from="POPUP/Camera2D/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]

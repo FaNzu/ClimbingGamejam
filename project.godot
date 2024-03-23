@@ -19,6 +19,7 @@ config/icon="res://Art/icon.svg"
 
 window/size/viewport_width=1200
 window/size/viewport_height=750
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 
 [input]

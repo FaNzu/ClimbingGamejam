@@ -17,6 +17,7 @@ func _ready():
 	fallSpeed = 0
 	fallDeceleration = 0
 	$AnimatedSprite2D.animation = "up"
+	$GoblinSound.play()
 	#uncomment to hide character on start
 	#hide()
 
@@ -70,6 +71,9 @@ func start(pos):
 	$CollisionShape2D.disabled = false
 
 func fall(initialSpeed, duration, deceleration):
+	$AudioStreamPlayer.play()
+	if $GoblinSound.playing == true:
+		print_debug("playing in fall")
 	fallSpeed = initialSpeed
 	fallDuration = duration
 	fallDeceleration = deceleration

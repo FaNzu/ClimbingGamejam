@@ -145,7 +145,7 @@ sources/0 = SubResource("TileSetAtlasSource_lqj3i")
 position = Vector2(1, 0)
 
 [node name="Climber" parent="." instance=ExtResource("2_0rg6s")]
-position = Vector2(314, 2203)
+position = Vector2(306, 2391)
 
 [node name="Defender" parent="." instance=ExtResource("3_kq8yu")]
 position = Vector2(206, 212)

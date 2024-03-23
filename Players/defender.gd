@@ -2,7 +2,6 @@ extends Area2D
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
-@export var Barrel = PackedScene
 
 signal hit
 
@@ -21,10 +20,6 @@ func _process(delta):
 	if Input.is_action_pressed("defender_move_left"):
 		velocity.x -= 1
 		$AnimatedSprite2D.flip_h = true
-	
-	#make bullet logic here
-	if Input.is_action_pressed("defender_attack_q"):
-		shoot_barrel()
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -45,7 +40,3 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-
-func shoot_barrel():
-	var b = Barrel.instance()
-	add_child(b)

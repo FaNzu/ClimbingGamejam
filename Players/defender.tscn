@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvnfjrfeb13ei"]
+[gd_scene load_steps=5 format=3 uid="uid://dvnfjrfeb13ei"]
 
 [ext_resource type="Script" path="res://Players/defender.gd" id="1_b7ftw"]
 [ext_resource type="Texture2D" uid="uid://cdk3awpccaoqm" path="res://Art/enemyWalking_1.png" id="2_r64ai"]
@@ -18,16 +18,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kgfel"]
-radius = 54.0
-height = 136.0
-
 [node name="Defender" type="Area2D"]
 script = ExtResource("1_b7ftw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jjo37")
 animation = &"walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_kgfel")

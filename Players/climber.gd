@@ -61,10 +61,8 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 func _on_body_entered(body):
-	hide() # Player disappears after being hit.
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true)
+	fall(body.onHitFallSpeed, body.onHitFallDuration, body.onHitFallDeceleration)
+	body.queue_free()
 
 func start(pos):
 	position = pos

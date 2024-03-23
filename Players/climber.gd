@@ -11,7 +11,7 @@ signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
+	screen_size = Vector2(600.0, 2465.0)
 	stopped = true
 	fallDuration = 0
 	fallSpeed = 0

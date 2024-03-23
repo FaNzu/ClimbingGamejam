@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxvum0q1o0aur"]
+
+[ext_resource type="Script" path="res://Projectiles/barrel.gd" id="1_7h4iv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aa7mw"]
+
+[node name="Barrel" type="Area2D"]
+script = ExtResource("1_7h4iv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_aa7mw")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.960784, 0.827451, 0.988235, 0.686275)
+polygon = PackedVector2Array(0, -16, 10, -16, 10, 15, -10, 15, -10, -16)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_barrel_body_entered"]

@@ -1,5 +1,7 @@
 extends Node
 
+var climberposition
+
 @onready var players := {
 	"1": {
 		viewport = $Row/DefenderViewportContainer/SubViewport,
@@ -13,6 +15,9 @@ extends Node
 	}
 }
 
+func _process(delta):
+	climberposition = players["2"].player.position
+	$Row/ColorRect/ProgressRect.position.y = 2664 / climberposition.y
 
 func _ready() -> void:
 	players["2"].viewport.world_2d = players["1"].viewport.world_2d

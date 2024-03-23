@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh0ipb1r5sdye"]
+[gd_scene load_steps=2 format=3 uid="uid://dr161xdulmc3a"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_7mvhx"]
 
@@ -11,6 +11,7 @@ offset_bottom = 758.0
 color = Color(0.878431, 0.878431, 0.878431, 1)
 
 [node name="Title" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 24.0
 offset_right = 365.0
@@ -21,6 +22,7 @@ theme_override_font_sizes/font_size = 75
 text = "Dwarf Tower"
 
 [node name="UnderTitle" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 661.0
 offset_top = 59.0
 offset_right = 1157.0
@@ -31,6 +33,7 @@ theme_override_font_sizes/font_size = 40
 text = "And the bouldering goblin"
 
 [node name="Credits" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 138.0
 offset_right = 980.0
@@ -48,6 +51,7 @@ Cloud Background ripped from a tutorial
 Music: Unity by Fatrat"
 
 [node name="CreditsButton" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 31.0
 offset_top = 641.0
 offset_right = 366.0

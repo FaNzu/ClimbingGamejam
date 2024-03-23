@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://byfydab0bne7v"]
+[gd_scene load_steps=5 format=3 uid="uid://byfydab0bne7v"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_1wju5"]
+[ext_resource type="Texture2D" uid="uid://njpc0hm1uk0u" path="res://Art/Goblin_der_klatre_falder.png" id="2_emul3"]
 [ext_resource type="PackedScene" uid="uid://hbwq6j3kjyo" path="res://Castle.tscn" id="2_obcaq"]
+[ext_resource type="Texture2D" uid="uid://cdk3awpccaoqm" path="res://Art/enemyWalking_1.png" id="3_tsi7q"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_1wju5")
@@ -33,11 +35,14 @@ custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 color = Color(0.0941176, 1, 1, 1)
 
-[node name="ProgressRect" type="ColorRect" parent="Row/ColorRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 0, 1, 1)
+[node name="ProgressGoblin" type="Sprite2D" parent="Row/ColorRect"]
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("2_emul3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Row/ColorRect"]
+position = Vector2(-2, 58)
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("3_tsi7q")
 
 [node name="DefenderViewportContainer" type="SubViewportContainer" parent="Row"]
 layout_mode = 2
@@ -48,6 +53,7 @@ size = Vector2i(600, 750)
 render_target_update_mode = 4
 
 [node name="Castle" parent="Row/DefenderViewportContainer/SubViewport" instance=ExtResource("2_obcaq")]
+show_behind_parent = true
 
 [node name="Camera2D" type="Camera2D" parent="Row/DefenderViewportContainer/SubViewport"]
 enabled = false

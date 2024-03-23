@@ -17,7 +17,7 @@ var climberposition
 
 func _process(delta):
 	climberposition = players["2"].player.position
-	$Row/ColorRect/ProgressRect.position.y = 2664 / climberposition.y
+	$Row/ColorRect/ProgressGoblin.position.y = ((2664/750) * climberposition.y) / 10
 
 func _ready() -> void:
 	players["2"].viewport.world_2d = players["1"].viewport.world_2d

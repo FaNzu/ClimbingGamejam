@@ -19,6 +19,9 @@ func _ready():
 			onHitFallDeceleration = 0.8
 		"crate":
 			$AnimatedSprite2D.animation = "crate"
+			$AnimatedSprite2D.flip_h = randi_range(0,1)==1
+			$AnimatedSprite2D.flip_v = randi_range(0,1)==1
+			$AnimatedSprite2D.rotation = randi_range(0,3) * PI / 2
 			speed = 600
 			$CollisionShape2D.shape = $CrateCollider.shape
 			onHitFallSpeed = 0.5

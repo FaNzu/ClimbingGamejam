@@ -8,6 +8,7 @@ signal hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	collision_layer = 2
 	#uncomment to hide character on start
 	#hide()
 

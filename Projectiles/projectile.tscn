@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dujv14fyg8qbo"]
+
+[ext_resource type="Script" path="res://Projectiles/Projectile.gd" id="1_vyexi"]
+[ext_resource type="Texture2D" uid="uid://2qwuhk7cdtr5" path="res://Art/icon.svg" id="2_ihbe0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yybl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ihbe0")
+}],
+"loop": true,
+"name": &"icon",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mph7i"]
+size = Vector2(60, 60)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_vyexi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_yybl4")
+animation = &"icon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mph7i")
+one_way_collision_margin = 0.0

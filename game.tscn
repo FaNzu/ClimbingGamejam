@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://byfydab0bne7v"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_1wju5"]
+[ext_resource type="PackedScene" uid="uid://hbwq6j3kjyo" path="res://Castle.tscn" id="2_obcaq"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_1wju5")
+
+[node name="Row" type="HBoxContainer" parent="."]
+offset_right = 1204.0
+offset_bottom = 750.0
+
+[node name="LeftViewportContainer" type="SubViewportContainer" parent="Row"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Row/LeftViewportContainer"]
+handle_input_locally = false
+size = Vector2i(600, 750)
+render_target_update_mode = 4
+
+[node name="Castle" parent="Row/LeftViewportContainer/SubViewport" instance=ExtResource("2_obcaq")]
+
+[node name="Camera2D" type="Camera2D" parent="Row/LeftViewportContainer/SubViewport"]
+
+[node name="RightViewportContainer" type="SubViewportContainer" parent="Row"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Row/RightViewportContainer"]
+handle_input_locally = false
+size = Vector2i(600, 750)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Row/RightViewportContainer/SubViewport"]

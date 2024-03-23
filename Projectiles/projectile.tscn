@@ -1,30 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://dujv14fyg8qbo"]
+[gd_scene load_steps=12 format=3 uid="uid://dujv14fyg8qbo"]
 
 [ext_resource type="Script" path="res://Projectiles/Projectile.gd" id="1_vyexi"]
+[ext_resource type="Texture2D" uid="uid://c646yvbxn5ik8" path="res://Art/Barrel0.png" id="2_h73ap"]
 [ext_resource type="Texture2D" uid="uid://2qwuhk7cdtr5" path="res://Art/icon.svg" id="2_ihbe0"]
+[ext_resource type="Texture2D" uid="uid://c0p3yuaf8dq6g" path="res://Art/Barrel1.png" id="3_ddhlb"]
+[ext_resource type="Texture2D" uid="uid://uudc1vq4805m" path="res://Art/Cannonball.png" id="4_hd13k"]
+[ext_resource type="Texture2D" uid="uid://crfv4snw561do" path="res://Art/Crate.png" id="4_w5iwy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yybl4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_h73ap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ddhlb")
+}],
+"loop": true,
+"name": &"barrel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hd13k")
+}],
+"loop": true,
+"name": &"cannonball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w5iwy")
+}],
+"loop": true,
+"name": &"crate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_ihbe0")
 }],
 "loop": true,
-"name": &"icon",
+"name": &"placeholder",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mph7i"]
-size = Vector2(60, 60)
+size = Vector2(120, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhw2g"]
+size = Vector2(160, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g7lm"]
+size = Vector2(80, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8trj"]
+radius = 20.0
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_vyexi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yybl4")
-animation = &"icon"
+animation = &"placeholder"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mph7i")
 one_way_collision_margin = 0.0
+
+[node name="BarrelCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vhw2g")
+disabled = true
+one_way_collision_margin = 0.0
+
+[node name="CrateCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0g7lm")
+disabled = true
+
+[node name="CannonballCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c8trj")

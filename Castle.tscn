@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://hbwq6j3kjyo"]
+[gd_scene load_steps=9 format=3 uid="uid://vqjv1qf8pjkj"]
 
 [ext_resource type="Texture2D" uid="uid://cu33lwhm5h6oo" path="res://Art/tileset.png" id="1_8lstb"]
 [ext_resource type="PackedScene" uid="uid://br3d7nxkytnd7" path="res://Players/climber.tscn" id="2_0rg6s"]
+[ext_resource type="PackedScene" uid="uid://65yne252bab7" path="res://Projectiles/ProjectileSpawner.tscn" id="3_8w1hi"]
 [ext_resource type="PackedScene" uid="uid://dvnfjrfeb13ei" path="res://Players/defender.tscn" id="3_kq8yu"]
 [ext_resource type="Script" path="res://Levels/BaggroundCastle.gd" id="4_5x216"]
 [ext_resource type="Texture2D" uid="uid://ca0mabvyry8s7" path="res://Art/back.png" id="5_4odsg"]
@@ -148,6 +149,9 @@ position = Vector2(314, 2203)
 
 [node name="Defender" parent="." instance=ExtResource("3_kq8yu")]
 position = Vector2(206, 212)
+
+[node name="ProjectileSpawner" parent="." node_paths=PackedStringArray("defender") instance=ExtResource("3_8w1hi")]
+defender = NodePath("../Defender")
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true

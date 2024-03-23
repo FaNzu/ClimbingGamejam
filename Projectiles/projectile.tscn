@@ -79,3 +79,4 @@ disabled = true
 
 [node name="CannonballCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_c8trj")
+disabled = true

@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 @export var type = "placeholder"
 @export var speed = 600
 @export var onHitFallSpeed = 0.5
@@ -39,3 +39,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.y += speed * delta
+

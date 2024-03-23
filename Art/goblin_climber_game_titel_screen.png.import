@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://172tc5r420hn"
-path="res://.godot/imported/castle.jpg-34d493884dffa85787469ee04472c4b6.ctex"
+uid="uid://18j85bj5g8nm"
+path="res://.godot/imported/goblin_climber_game_titel_screen.png-650a0e651c02e734a35cfc0ac26e7b03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/castle.jpg"
-dest_files=["res://.godot/imported/castle.jpg-34d493884dffa85787469ee04472c4b6.ctex"]
+source_file="res://Art/goblin_climber_game_titel_screen.png"
+dest_files=["res://.godot/imported/goblin_climber_game_titel_screen.png-650a0e651c02e734a35cfc0ac26e7b03.ctex"]
 
 [params]
 

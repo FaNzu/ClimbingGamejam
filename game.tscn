@@ -7,27 +7,40 @@
 script = ExtResource("1_1wju5")
 
 [node name="Row" type="HBoxContainer" parent="."]
-offset_right = 1204.0
-offset_bottom = 750.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="LeftViewportContainer" type="SubViewportContainer" parent="Row"]
+[node name="ClimberViewportContainer" type="SubViewportContainer" parent="Row"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Row/LeftViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Row/ClimberViewportContainer"]
 handle_input_locally = false
 size = Vector2i(600, 750)
 render_target_update_mode = 4
 
-[node name="Castle" parent="Row/LeftViewportContainer/SubViewport" instance=ExtResource("2_obcaq")]
+[node name="Camera2D" type="Camera2D" parent="Row/ClimberViewportContainer/SubViewport"]
+limit_left = 0
+limit_right = 600
 
-[node name="Camera2D" type="Camera2D" parent="Row/LeftViewportContainer/SubViewport"]
+[node name="ColorRect" type="ColorRect" parent="Row"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+color = Color(0.0941176, 1, 1, 1)
 
-[node name="RightViewportContainer" type="SubViewportContainer" parent="Row"]
+[node name="DefenderViewportContainer" type="SubViewportContainer" parent="Row"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Row/RightViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Row/DefenderViewportContainer"]
 handle_input_locally = false
 size = Vector2i(600, 750)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="Row/RightViewportContainer/SubViewport"]
+[node name="Castle" parent="Row/DefenderViewportContainer/SubViewport" instance=ExtResource("2_obcaq")]
+
+[node name="Camera2D" type="Camera2D" parent="Row/DefenderViewportContainer/SubViewport"]
+enabled = false

@@ -1,10 +1,30 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnpvspo3ju6nf"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_mqs1s"]
-[ext_resource type="Texture2D" uid="uid://172tc5r420hn" path="res://Art/castle.jpg" id="2_b2wyl"]
+[ext_resource type="Texture2D" uid="uid://18j85bj5g8nm" path="res://Art/goblin_climber_game_titel_screen.png" id="2_i1gja"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_mqs1s")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 24.0
+offset_right = 365.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "Dwarf Tower"
+
+[node name="UnderTitle" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 127.0
+offset_right = 129.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "And the bouldering goblin"
 
 [node name="StartButton" type="Button" parent="."]
 offset_left = 46.0
@@ -41,9 +61,11 @@ text = "Kunst af Eik"
 show_behind_parent = true
 light_mask = 512
 visibility_layer = 512
-position = Vector2(600, 375)
-scale = Vector2(1.17188, 1.46484)
-texture = ExtResource("2_b2wyl")
+position = Vector2(600.079, 374.921)
+scale = Vector2(0.999869, 1.00021)
+texture = ExtResource("2_i1gja")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

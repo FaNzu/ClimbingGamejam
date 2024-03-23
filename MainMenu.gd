@@ -10,4 +10,4 @@ func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://game.tscn")
 
 func _on_credits_button_pressed():
-	pass
+	get_tree().change_scene_to_file("res://credits.tscn")

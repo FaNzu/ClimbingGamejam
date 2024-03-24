@@ -42,18 +42,24 @@ func _process(delta):
 	var remainingCooldown = max(globalCooldownCurrent, cooldownQCurrent)
 	if remainingCooldown > 0:
 		$BarrelSprite/Label.text = str(remainingCooldown)
+		$BarrelSprite.animation = "await"
 	else:
 		$BarrelSprite/Label.text = "Q"
+		$BarrelSprite.animation = "default"
 	remainingCooldown = max(globalCooldownCurrent, cooldownWCurrent)
 	if remainingCooldown > 0:
 		$CrateSprite/Label.text = str(remainingCooldown)
+		$CrateSprite.animation = "await"
 	else:
 		$CrateSprite/Label.text = "W"
+		$CrateSprite.animation = "default"
 	remainingCooldown = max(globalCooldownCurrent, cooldownECurrent)
 	if remainingCooldown > 0:
 		$CannonballSprite/Label.text = str(remainingCooldown)
+		$CannonballSprite.animation = "await"
 	else:
 		$CannonballSprite/Label.text = "E"
+		$CannonballSprite.animation = "default"
 
 func shoot(type):
 	globalCooldownCurrent = globalCooldown

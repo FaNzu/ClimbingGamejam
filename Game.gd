@@ -1,6 +1,9 @@
 extends Node
 
+var time
+var wontime
 var climberposition
+var popupopen = false
 
 @onready var players := {
 	"1": {
@@ -24,15 +27,22 @@ func _ready() -> void:
 		node.player.add_child(remote_transform)
 	if $Music.playing == false:
 		$Music.play()
+	
+	time = Time.get_unix_time_from_system()
 
 func _process(delta):
 	climberposition = players["2"].player.position
 	$Row/ColorRect/ProgressGoblin.position.y = ((2664/750) * climberposition.y) / 10
 	
 	#print(players["2"].player.position)
-	if players["2"].player.position.y <= 212:
-		print("WON")
-		$POPUP.show()
+	if players["2"].player.position.y <= 212 and popupopen == false:
+		popupopen = true
+		won()
+
+func won():
+	wontime = Time.get_unix_time_from_system()
+	$POPUP/Camera2D/PopupTimer.text = str(wontime - time).pad_decimals(2)
+	$POPUP.show()
 
 func _on_back_to_main_menu_pressed():
 	get_tree().change_scene_to_file("res://main_menu.tscn")

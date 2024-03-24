@@ -70,9 +70,15 @@ title = "WINNER POPUP"
 initial_position = 1
 size = Vector2i(300, 115)
 visible = false
+borderless = true
 
 [node name="Camera2D" type="Camera2D" parent="POPUP"]
 anchor_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="POPUP/Camera2D"]
+offset_right = 300.0
+offset_bottom = 115.0
+color = Color(0.819608, 0.407843, 0, 1)
 
 [node name="PopupText" type="Label" parent="POPUP/Camera2D"]
 offset_left = 55.035

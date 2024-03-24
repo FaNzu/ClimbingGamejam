@@ -34,7 +34,6 @@ func _process(delta):
 	climberposition = players["2"].player.position
 	$Row/ColorRect/ProgressGoblin.position.y = ((2664/750) * climberposition.y) / 10
 	
-	#print(players["2"].player.position)
 	if players["2"].player.position.y <= 212 and popupopen == false:
 		popupopen = true
 		won()

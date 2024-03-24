@@ -32,12 +32,28 @@ func _process(delta):
 		if Input.is_action_just_pressed("defender_attack_q") and cooldownQCurrent <= 0:
 			shoot("barrel")
 			cooldownQCurrent = cooldownQ
-		if Input.is_action_just_pressed("defender_attack_w") and cooldownWCurrent <= 0:
+		elif Input.is_action_just_pressed("defender_attack_w") and cooldownWCurrent <= 0:
 			shoot("crate")
 			cooldownWCurrent = cooldownW
-		if Input.is_action_just_pressed("defender_attack_e") and cooldownECurrent <= 0:
+		elif Input.is_action_just_pressed("defender_attack_e") and cooldownECurrent <= 0:
 			shoot("cannonball")
 			cooldownECurrent = cooldownE
+			
+	var remainingCooldown = max(globalCooldownCurrent, cooldownQCurrent)
+	if remainingCooldown > 0:
+		$BarrelSprite/Label.text = str(remainingCooldown)
+	else:
+		$BarrelSprite/Label.text = "Q"
+	remainingCooldown = max(globalCooldownCurrent, cooldownWCurrent)
+	if remainingCooldown > 0:
+		$CrateSprite/Label.text = str(remainingCooldown)
+	else:
+		$CrateSprite/Label.text = "W"
+	remainingCooldown = max(globalCooldownCurrent, cooldownECurrent)
+	if remainingCooldown > 0:
+		$CannonballSprite/Label.text = str(remainingCooldown)
+	else:
+		$CannonballSprite/Label.text = "E"
 
 func shoot(type):
 	globalCooldownCurrent = globalCooldown

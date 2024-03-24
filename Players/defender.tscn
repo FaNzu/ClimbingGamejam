@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvnfjrfeb13ei"]
+[gd_scene load_steps=7 format=3 uid="uid://dvnfjrfeb13ei"]
 
 [ext_resource type="Script" path="res://Players/defender.gd" id="1_b7ftw"]
-[ext_resource type="Texture2D" uid="uid://cdk3awpccaoqm" path="res://Art/enemyWalking_1.png" id="2_r64ai"]
-[ext_resource type="Texture2D" uid="uid://cjm3xr1b7vtvi" path="res://Art/enemyWalking_2.png" id="3_1fo6o"]
+[ext_resource type="Texture2D" uid="uid://y4yltm42nhko" path="res://Art/Dwarf0.png" id="2_py8fc"]
+[ext_resource type="Texture2D" uid="uid://kwivvam31n2t" path="res://Art/Dwarf1.png" id="3_csjm2"]
+[ext_resource type="Texture2D" uid="uid://man454x6k6om" path="res://Art/Dwarf 2.png" id="4_bfch7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jjo37"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_r64ai")
+"texture": ExtResource("2_py8fc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_1fo6o")
+"texture": ExtResource("3_csjm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_py8fc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bfch7")
 }],
 "loop": true,
 "name": &"walk",
@@ -26,6 +33,8 @@ height = 136.0
 script = ExtResource("1_b7ftw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_jjo37")
 animation = &"walk"
 

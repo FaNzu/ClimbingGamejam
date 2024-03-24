@@ -1,61 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr161xdulmc3a"]
+[gd_scene load_steps=3 format=3 uid="uid://dr161xdulmc3a"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_7mvhx"]
+[ext_resource type="Texture2D" uid="uid://18j85bj5g8nm" path="res://Art/goblin_climber_game_titel_screen.png" id="2_vytnd"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_7mvhx")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1210.0
-offset_bottom = 758.0
-color = Color(0.878431, 0.878431, 0.878431, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+light_mask = 512
+visibility_layer = 512
+position = Vector2(600.079, 374.921)
+scale = Vector2(0.999869, 1.00021)
+texture = ExtResource("2_vytnd")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="Title" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 24.0
-offset_right = 365.0
-offset_bottom = 87.0
+[node name="Title" type="Label" parent="Sprite2D"]
+offset_left = -577.155
+offset_top = -350.847
+offset_right = -115.155
+offset_bottom = -247.847
 theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75
 text = "Dwarf Tower"
 
-[node name="UnderTitle" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 661.0
-offset_top = 59.0
-offset_right = 1157.0
-offset_bottom = 114.0
+[node name="UnderTitle" type="Label" parent="Sprite2D"]
+offset_left = -99.491
+offset_top = -317.265
+offset_right = 396.509
+offset_bottom = -262.265
 theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "And the bouldering goblin"
 
-[node name="Credits" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 138.0
-offset_right = 980.0
-offset_bottom = 541.0
+[node name="Credits" type="Label" parent="Sprite2D"]
+offset_left = -564.153
+offset_top = -236.871
+offset_right = 379.847
+offset_bottom = 224.129
 theme_override_colors/font_color = Color(1, 0.501961, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "A game by group name
+text = "A game by Jutlandias Disiple
 
-Ask Hyllebjerg: Programming
-Simon Graversen: Programming, Art, Voice Acting
-Eik Hyllebjerg: Art
+Ask H: Programming
+Simon G: Programming, Art, Voice Acting
+Eik H: Art
 
-Cloud Background ripped from a tutorial
-Music: Unity by Fatrat"
+Art from sunny land - ansimuz
+Music: Glorious morning - waterflame"
 
-[node name="CreditsButton" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 641.0
-offset_right = 366.0
-offset_bottom = 703.0
+[node name="CreditsButton" type="Button" parent="Sprite2D"]
+offset_left = -569.154
+offset_top = 266.023
+offset_right = -234.154
+offset_bottom = 328.023
 text = "MAIN MENU"
 
-[connection signal="pressed" from="ColorRect/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Sprite2D/CreditsButton" to="." method="_on_credits_button_pressed"]

@@ -1,10 +1,96 @@
-[gd_scene load_steps=4 format=3 uid="uid://65yne252bab7"]
+[gd_scene load_steps=10 format=3 uid="uid://65yne252bab7"]
 
 [ext_resource type="Script" path="res://Projectiles/ProjectileSpawner.gd" id="1_p7bkt"]
 [ext_resource type="PackedScene" uid="uid://dujv14fyg8qbo" path="res://Projectiles/projectile.tscn" id="2_vgxfk"]
 [ext_resource type="PackedScene" uid="uid://dvnfjrfeb13ei" path="res://Players/defender.tscn" id="3_fe8nb"]
+[ext_resource type="Texture2D" uid="uid://c646yvbxn5ik8" path="res://Art/Barrel0.png" id="4_6ptb6"]
+[ext_resource type="Texture2D" uid="uid://crfv4snw561do" path="res://Art/Crate.png" id="5_cg0gh"]
+[ext_resource type="Texture2D" uid="uid://uudc1vq4805m" path="res://Art/Cannonball.png" id="6_2rfof"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fucw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6ptb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uw6wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cg0gh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8h1vv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2rfof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ProjectileSpawner" type="Node2D"]
 script = ExtResource("1_p7bkt")
 Projectile = ExtResource("2_vgxfk")
 DefenderType = ExtResource("3_fe8nb")
+
+[node name="BarrelSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(50, 30)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fucw4")
+
+[node name="Label" type="Label" parent="BarrelSprite"]
+offset_left = -76.0
+offset_top = -44.0
+offset_right = 76.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 64
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 3
+visible_ratio = 3.0
+
+[node name="CrateSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(125, 30)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_uw6wm")
+
+[node name="Label" type="Label" parent="CrateSprite"]
+offset_left = -52.0
+offset_top = -38.0
+offset_right = 52.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 48
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 3
+visible_ratio = 3.0
+
+[node name="CannonballSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(180, 30)
+sprite_frames = SubResource("SpriteFrames_8h1vv")
+
+[node name="Label" type="Label" parent="CannonballSprite"]
+offset_left = -29.0
+offset_top = -24.0
+offset_right = 28.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 24
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 3
+visible_ratio = 3.0
